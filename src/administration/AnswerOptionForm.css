@@ -1,0 +1,30 @@
+table input, table textarea {
+  width: 100%;
+}
+
+table input.numeric {
+  text-align: right;
+}
+
+.questionDetails table td:first-of-type{
+  width: 20px;
+  padding-right: 0;
+}
+
+.questionDetails table td:nth-last-of-type(2) {
+  padding: 8px 0 2px;
+}
+
+table td:last-of-type {
+  width: 40px;
+}
+
+table .btn-delete,
+table .btn-new {
+  padding: 0;
+  background: transparent;
+}
+
+table .btn-new {
+  margin-top: 0;
+}

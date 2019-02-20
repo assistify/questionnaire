@@ -1,0 +1,47 @@
+/*
+Copyright 2018-2019 Justso GmbH, Frankfurt, Germany
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+import React, { Component } from 'react'
+
+class CheckboxList extends Component {
+  onChange(id, value, checked) {
+    let answer = this.props.answer
+    if (checked) {
+      answer['' + id] = value
+    } else {
+      delete(answer['' + id])
+    }
+    this.props.doAnswer(answer, checked ? value : -value)
+  }
+
+  render() {
+    const options = this.props.options.map(option => {
+      return (
+        <div className="checkbox list-group-item" key={option.id}>
+          <input type="checkbox" id={'cb-' + option.id} value={option.value}
+            onChange={e => this.onChange(option.id, option.value, e.target.checked)}/>
+          <label htmlFor={'cb-' + option.id}>{option.text}</label>
+        </div>
+      )
+    })
+
+    return (<div className="list-group">
+      {options}
+    </div>)
+  }
+}
+
+export default CheckboxList

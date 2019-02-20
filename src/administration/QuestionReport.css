@@ -1,0 +1,29 @@
+.QuestionReport li {
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+  vertical-align: top;
+}
+
+.QuestionReport li span {
+  display: inline-block;
+}
+
+.QuestionReport .title
+{
+  width: 40%;
+}
+
+.QuestionReport .option
+{
+  width: 30%;
+}
+
+.QuestionReport .type,
+.QuestionReport .num,
+.QuestionReport .average,
+.QuestionReport .stddev
+{
+  text-align: right;
+  width: 10%;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,3 @@
+.Analytics .Axis-Bottom .tick text {
+  transform: translate(-10px, 30px) rotate(-90deg);
+}

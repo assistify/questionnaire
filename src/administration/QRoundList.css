@@ -1,0 +1,11 @@
+.started {
+  margin-left: 20px;
+  font-size: 80%;
+  background: #e7e7e7;
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.active .started {
+  color: black;
+}

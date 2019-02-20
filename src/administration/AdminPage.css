@@ -1,0 +1,97 @@
+.loading:before {
+  content: url(/spinning-loader.svg);
+  z-index: 9999;
+}
+.loading {
+  width: 115px;
+  height: 115px;
+  margin: 0 auto;
+}
+
+li {
+  list-style: none;
+}
+
+.panel-heading {
+  cursor: pointer;
+}
+
+.panel-body {
+  padding: 0;
+}
+
+.panel-default {
+  border: none;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.details {
+  padding-top: 15px;
+  height: 100%;
+  overflow: auto;
+}
+
+.details .form-group {
+  padding: 0 15px;
+}
+
+.slideWrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+}
+
+.slideWrapper > * {
+  display: inline-block;
+  vertical-align: top;
+  overflow: auto;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+}
+
+@media (min-width: 641px) {
+  .slideWrapper.selected > * {
+    width: 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .slideWrapper.selected > *:first-child {
+    margin-left: -100%
+  }
+}
+
+.btn-toolbar {
+  margin: 10px;
+}
+
+button .glyphicon {
+  margin-right: 0.5em;
+}
+
+.QRCodeWrapper svg {
+  max-width: 100%;
+}
+
+.cancelled {
+  text-decoration: line-through;
+}
+
+.stats {
+  float: left;
+  width: 100%;
+}
+
+.Axis-Bottom text {
+  transform: translate(-10px, 10px) rotate(-90deg);
+}
+
+.Axis .tick line {
+  stroke: #aaa;
+}

@@ -1,0 +1,55 @@
+.QRCodeWrapper {
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+.qround-url {
+  font-size: 42px;
+  text-align: center;
+}
+
+.stats {
+  text-align: center;
+  padding: 0 15px 15px;
+  white-space: normal;
+}
+
+.stats svg {
+  max-width: 100%;
+}
+
+@media screen {
+  .printOnly {
+    display: none;
+  }
+}
+
+@media print {
+  .App-title {
+    font-size: 400%;
+    text-align: center;
+  }
+
+  .slideWrapper.selected > * {
+    width: 100% !important;
+  }
+
+  .slideWrapper > div:first-of-type {
+    display: none;
+  }
+
+  .QRCodeWrapper {
+    text-align: center;
+    padding: 20%;
+  }
+
+  .QRCodeWrapper svg {
+    width: 600px !important;
+    height: 600px !important;
+  }
+
+  .form-group, .btn-toolbar {
+    display: none;
+  }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="110px" height="110px">
+  <g>
+    <circle cx="55" cy="5" r="5" />
+    <circle cx="80" cy="11.6987298" r="5" />
+    <circle cx="98.3012702" cy="30" r="5" />
+    <circle cx="105" cy="55" r="5" />
+    <circle cx="98.3012702" cy="80" r="5" />
+    <circle cx="80" cy="98.3012702" r="5" />
+    <circle cx="55" cy="105" r="5" />
+    <circle cx="30" cy="98.3012702" r="5" />
+    <circle cx="11.6987298" cy="80" r="5" />
+    <circle cx="5" cy="55" r="5" />
+    <circle cx="11.6987298" cy="30" r="5" />
+    <circle cx="30" cy="11.6987298" r="5" />
+
+    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 55 55" to="360 55 55" dur="3s" repeatCount="indefinite" />
+  </g>
+</svg>
