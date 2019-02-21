@@ -33,7 +33,8 @@ commands:
         -e MYSQL_DATABASE=<name-of-your-database> \
         -e MYSQL_USER=<db-username> \
         -e MYSQL_PASSWORD=<db-pasword> \
-        --name mysql mysql:5.7
+        --name mysql \
+        mysql:5.7
 
 ## Installation with docker
 
@@ -42,17 +43,17 @@ your needs. So, after checkout with
 
     git clone https://github.com/JustsoSoftware/questionnaire-ce.git
     cd questionnaire-ce
-    
-    
+
+
 open the following files in the text editor of your choice and add your custom information:
 
-- src/MainPage.js - This page is called if the user simply calls the base URL of your installation. It can be used for general information and links to different questionnaires. 
+- src/MainPage.js - This page is called if the user simply calls the base URL of your installation. It can be used for general information and links to different questionnaires.
 - src/StartPage.js - this page is called whenever the user starts an assessment and should be more specific about the goal of this specific questionnaire.
 
 Then, build the container by calling
 
     docker build . --tag <name-of-your-image>
-    
+
 After that, you can simply start a container from that image:
 
     docker run --it --rm --name <name-of-your-container> \
@@ -62,7 +63,7 @@ After that, you can simply start a container from that image:
         --network <your-network-name> \
         <name-of-your-image> \
         npm run migrate
-        
+
 The last line (and the trailing backslash at the line begore) is only needed the first time you start the container.
 It creates the database structure. After that, just call the command again without it.
 
@@ -90,6 +91,6 @@ The database, which is built in the `migrate` step is intially empty. You need t
 Now, you can create a user by calling a REST API:
 
     curl http://127.0.0.1:8080/api/signup -H 'Content-Type: application/json' -d '{"username":"your-username","password":"your-password"}'
-    
+
 After that, you can log in to http://127.0.0.1:8080/admin/test to your new questionnaire and create some questions and a first questioning round.
 On the screen you will see a URL under which this round is accessible for the users.
