@@ -21,6 +21,19 @@ part of this reposititory, it is only the 'application' part which can be used t
 - Implemented with Node.js and React.JS
 - Has a Dockerfile to create a small container
 
+If you just want to spin up a simple MySQL database in your local docker for development purposes, use the following
+commands:
+
+    docker network create mysql
+    docker volume create questce_data
+    docker run --rm -d \
+        -p 3306:3306 \
+        -v questce_data:/var/lib/mysql \
+        -e MYSQL_ROOT_PASSWORD=<db-root-password> \
+        -e MYSQL_DATABASE=<name-of-your-database> \
+        -e MYSQL_USER=<db-username> \
+        -e MYSQL_PASSWORD=<db-pasword> \
+        --name mysql mysql:5.7
 
 ## Installation with docker
 
@@ -43,7 +56,7 @@ Then, build the container by calling
 After that, you can simply start a container from that image:
 
     docker run --it --rm --name <name-of-your-container> \
-        -e DB_URL="mysql://user:password@mysql/<name-of-your-database>" \
+        -e DB_URL="mysql://<db-username>:<db-password>@mysql/<name-of-your-database>" \
         -e AUTH_SECRET="<your-auth-secret>>" \
         -p 8080:8080 \
         --network <your-network-name> \
@@ -59,7 +72,8 @@ As you can see, you need some enviroment variables (`-e` options) which configur
 - AUTH_SECRET - This should be a random string which is used to salt the encoding of stored user passwords (needed for administrator accounts)
 - NODE_ENV - optional to specify `production` mode (which prevents error logging on the frontend)
 
-The `--network` parameter is only needed if the database is accessible via a docker network.
+The `--network` parameter is only needed if the database is accessible via a docker network, for example in your local
+docker development environment.
 
 ## Initialize database
 
