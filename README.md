@@ -67,7 +67,11 @@ The database, which is built in the `migrate` step is intially empty. You need t
 
     INSERT INTO `Questionnaires` VALUES (1,'test','My first questionnaire',now(),now(),'Here are some questions for you','Please answer the following questions.');
     INSERT INTO `Competences` VALUES (1, 'category 1', now(), now(), 0, 1);
-    INSERT INTO `Competences` VALUES (2, 'category 2', now(), now(), 0, 1);
+    INSERT INTO `Competences` VALUES (2, 'category 2', now(), now(), 0, 2);
+    INSERT INTO `Competences` VALUES (3, 'category 3', now(), now(), 0, 3);
+    INSERT INTO `Competences` VALUES (4, 'category 4', now(), now(), 0, 4);
+    INSERT INTO `Competences` VALUES (5, 'category 5', now(), now(), 0, 5);
+    INSERT INTO `Competences` VALUES (6, 'category 6', now(), now(), 1, 6);
 
 Now, you can create a user by calling a REST API:
 
