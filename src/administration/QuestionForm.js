@@ -120,7 +120,7 @@ class QuestionForm extends Component {
       </div>
       <div className="form-group">
         <label>Kategorie</label>
-        <select className="form-control" value={this.state.question.competence && this.state.question.competence.id}
+        <select className="form-control" value={this.state.question.competence ? this.state.question.competence.id : undefined}
           onChange={e => this.doUpdateOwnProp('competenceId', e.target.value)} >
           {competenceSelection}
         </select>
