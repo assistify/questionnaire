@@ -54,7 +54,7 @@
     "docker-build": "docker build --tag dilab/questionnaire:latest .",
     "docker-push": "docker push dilab/questionnaire:latest"
   },
-  "proxy": "http://localhost:8082/",
+  "proxy": "http://localhost:8080/",
   "browserslist": [
     ">0.2%",
     "not dead",
