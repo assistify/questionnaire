@@ -25,12 +25,12 @@ const questionTypes = [
 ]
 
 const competences = [
-  { id: 1, name: 'Kommunikation und Kooperation'},
-  { id: 2, name: 'Erstellen digitaler Inhalte'},
-  { id: 3, name: 'Sicherheit'},
-  { id: 4, name: 'Problemlösen'},
-  { id: 5, name: 'Informationen und Daten'},
-  { id: 6, name: 'Demographie', inhibitUserAnalysis: true}
+  { id: 1, name: 'Category 1'},
+  { id: 2, name: 'Category 2'},
+  { id: 3, name: 'Category 3'},
+  { id: 4, name: 'Category 4'},
+  { id: 5, name: 'Category 5'},
+  { id: 6, name: 'Category 6', inhibitUserAnalysis: true}
 ]
 
 let sequence = 0
@@ -38,11 +38,9 @@ let sequence = 0
 class QuestionForm extends Component {
   constructor(props) {
     super(props)
-    this.state = props
-  }
-
-  componentDidUpdate() {
-    this.setState(this.props)
+    this.state = {
+      question: props.question
+    }
   }
 
   doUpdateOption(optionId, field) {
@@ -85,6 +83,29 @@ class QuestionForm extends Component {
     const competenceSelection = competences.map(competence => (
       <option key={competence.id} value={competence.id}>{competence.name}</option>
     ))
+    const answerOptionForm = (
+      <AnswerOptionForm options={this.state.question.options}
+        doUpdate={(optionId, field) => this.doUpdateOption(optionId, field)}
+        doCreate={() => this.doCreateOption()}
+        doDelete={optionId => this.doDeleteOption(optionId)}
+      />)
+
+    const buttons = (
+      <div className="btn-toolbar">
+        <button className="btn btn-primary save-button" onClick={() => this.props.doChange(this.state.question)}>
+          <span className="glyphicon glyphicon-floppy-disk" />
+          Speichern
+        </button>
+        <button className="btn btn-default close-button" onClick={this.props.doClose}>
+          <span className="glyphicon glyphicon-remove" />
+          Schließen
+        </button>
+        <button className="btn btn-danger delete-button" onClick={this.props.doDelete}>
+          <span className="glyphicon glyphicon-trash" />
+          Frage Löschen
+        </button>
+      </div>)
+
     return <div className="details">
       <div className="form-group">
         <textarea className="form-control" value={this.state.question.title}
@@ -99,32 +120,14 @@ class QuestionForm extends Component {
       </div>
       <div className="form-group">
         <label>Kategorie</label>
-        <select className="form-control" value={this.state.question.competence.id}
+        <select className="form-control" value={this.state.question.competence && this.state.question.competence.id}
           onChange={e => this.doUpdateOwnProp('competenceId', e.target.value)} >
           {competenceSelection}
         </select>
       </div>
 
-      <AnswerOptionForm options={this.state.question.options}
-        doUpdate={(optionId, field) => this.doUpdateOption(optionId, field)}
-        doCreate={() => this.doCreateOption()}
-        doDelete={optionId => this.doDeleteOption(optionId)}
-      />
-
-      <div className="btn-toolbar">
-        <button className="btn btn-primary save-button" onClick={() => this.props.doChange(this.state.question)}>
-          <span className="glyphicon glyphicon-floppy-disk" />
-          Speichern
-        </button>
-        <button className="btn btn-default close-button" onClick={this.props.doClose}>
-          <span className="glyphicon glyphicon-remove" />
-          Schließen
-        </button>
-        <button className="btn btn-danger delete-button" onClick={this.props.doDelete}>
-          <span className="glyphicon glyphicon-trash" />
-          Frage Löschen
-        </button>
-      </div>
+      {answerOptionForm}
+      {buttons}
     </div>
   }
 }
