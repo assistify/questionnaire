@@ -1,4 +1,4 @@
-# Questionnaire (Community Edition)
+# Questionnaire
 
 This is a simple, web based application to create polls. It originates from a self-assessment in the german
 car industry for their employees to check how 'digital' they already are. The questions themselves are not
