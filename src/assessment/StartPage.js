@@ -21,7 +21,7 @@ class StartPage extends Component {
   render() {
     return (
       <div className="page">
-        <h1>{this.props.greeting}</h1>
+        <h2>{this.props.greeting}</h2>
         <div className="App-intro">
           <img src={tree} alt="Logo" />
 

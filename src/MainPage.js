@@ -15,20 +15,23 @@ limitations under the License.
 */
 
 import React, {Component} from 'react'
-import tree from './tree_white.png'
 
 class MainPage extends Component {
   render() {
     return <div>
       <header className="App-header">
-        <h1 className="App-title">Befragung</h1>
+        <h1 className="App-title">Assistify Befragungen</h1>
       </header>
 
       <div className="container MainPage">
         <div className="App-intro">
-          <img src={tree} alt="Logo"/>
           <p>
-             Hier sollte stehen, um was genau die Befragung geht.
+             Wenn du hierher kommst, wolltest du wahrscheinlich an einer unserer Befragungen teilnehmen.
+          </p>
+
+          <p>
+            Leider scheint der Link, den du bekommen hast, unvollständig zu sein. Bitte prüfe ihn noch einmal
+            oder frage bei demjenigen nach, von dem du ihn hast.
           </p>
 
           <p>
