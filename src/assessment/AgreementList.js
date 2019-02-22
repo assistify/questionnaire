@@ -60,16 +60,16 @@ class AgreementList extends Component {
     })
 
     return (<div>
-      <p>Kreuzen Sie für jede Aussage die am besten passende Option an</p>
+      <p>Kreuze für jede Aussage die am besten passende Option an</p>
       <table className="table table-striped">
         <thead>
           <tr>
             <th />
-            <th>stimme gar nicht zu</th>
-            <th>stimme eher nicht zu</th>
+            <th>gar nicht</th>
+            <th>eher nicht</th>
             <th>teils/teils</th>
             <th>stimme eher zu</th>
-            <th>stimme voll und ganz zu</th>
+            <th>voll und ganz</th>
           </tr>
         </thead>
         <tbody>

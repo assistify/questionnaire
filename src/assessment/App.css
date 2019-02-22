@@ -20,13 +20,24 @@ html, body, .page, #root, .App {
 }
 
 .App-header {
-  background-color: #337ab7;
+  background-color: #1C938A;
   height:60px;
   padding: 20px;
   color: white;
   position: absolute;
   top: 0;
   width: 100%;
+}
+
+.App-header:before {
+    content: ' ';
+    background: url(/assistify.png);
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
 }
 
 .App-header + .error {
@@ -93,8 +104,13 @@ h2 {
 }
 
 .progressBar div {
-  background-color: #af5;
+  background-color: #d4145a;
   height: 5px;
+}
+
+.table thead th {
+    min-width: 70px;
+    text-align: center;
 }
 
 #totals {

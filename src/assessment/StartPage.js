@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 import React, { Component } from 'react'
-import tree from '../tree_white.png'
+import tree from './bot.png'
 
 class StartPage extends Component {
   render() {

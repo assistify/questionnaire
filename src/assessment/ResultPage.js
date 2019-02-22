@@ -62,7 +62,7 @@ class ResultPage extends Component {
 
     return (
       <div className="page results">
-        <h2>Ihr Ergebnis</h2>
+        <h2>Dein Ergebnis</h2>
 
         <p className="header">
           Sie haben <span id="totals">{this.props.totals}</span>
