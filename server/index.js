@@ -26,7 +26,7 @@ if (!AUTH_SECRET) {
   logger.error('Need a AUTH_SECRET environment variable')
 }
 if (!DB_URL) {
-  logger.error('Need a DB_URL environment variable')
+  logger.warn('No DB_URL environment variable - falling back to files')
 }
 
 const express = require('express')

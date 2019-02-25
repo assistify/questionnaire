@@ -15,6 +15,8 @@ limitations under the License.
 */
 'use strict'
 
+const fs = require('fs')
+const path = require('path')
 const {decode} = require('./base58')
 const handleErrors = require('./handleErrors')
 const sortVal = val => val ? val - 1 : Math.random()
@@ -55,13 +57,17 @@ module.exports = db => {
     compareQuestions,
 
     getAssessmentInfo: (req, res) => {
-      findQuestionnaire(req.params.qround)
-        .then(questionnaireId => db.Questionnaire.findOne({
-          attributes: ['id', 'title', 'greeting', 'description'],
-          where: {id: questionnaireId}
-        }))
-        .then(questionnaire => res.json({questionnaire}))
-        .catch(handleErrors(res))
+      if (db.sequelize) {
+        findQuestionnaire(req.params.qround)
+          .then(questionnaireId => db.Questionnaire.findOne({
+            attributes: ['id', 'title', 'greeting', 'description'],
+            where: {id: questionnaireId}
+          }))
+          .then(questionnaire => res.json({questionnaire}))
+          .catch(handleErrors(res))
+      } else {
+        res.json(JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'mocks', `get-api-assessment-${req.params.qround}.json`)).toString()))
+      }
     },
 
     createAssessment: (req, res) => {
@@ -82,36 +88,47 @@ module.exports = db => {
       let result = {}
       let questionnaire
 
-      findQuestionnaire(req.params.qround)
-        .then(questionnaireId => questionnaire = questionnaireId)
-        .then(() => db.Assessment.create({QroundId: decode(req.params.qround)}))
-        .then(assessment => result.assessmentId = assessment.id)
-        .then(() => db.Question.findAll({
-          where: {active: true},
-          attributes: ['id', 'title', 'type'],
-          include: [
-            'competence',
-            'options',
-            {model: db.Questionnaire, as: 'questionnaire', attributes: [], where: {id: questionnaire}}
-          ]
-        }))
-        .then(questions => {
-          result.totalsPossible = questions.reduce(questionReducer, {})
-          result.questions = questions.map(mapQuestion).sort(compareQuestions)
-          res.json(result)
-        })
-        .catch(handleErrors(res))
+      if (db.sequelize) {
+        findQuestionnaire(req.params.qround)
+          .then(questionnaireId => questionnaire = questionnaireId)
+          .then(() => db.Assessment.create({QroundId: decode(req.params.qround)}))
+          .then(assessment => result.assessmentId = assessment.id)
+          .then(() => db.Question.findAll({
+            where: {active: true},
+            attributes: ['id', 'title', 'type'],
+            include: [
+              'competence',
+              'options',
+              {model: db.Questionnaire, as: 'questionnaire', attributes: [], where: {id: questionnaire}}
+            ]
+          }))
+          .then(questions => {
+            result.totalsPossible = questions.reduce(questionReducer, {})
+            result.questions = questions.map(mapQuestion).sort(compareQuestions)
+            res.json(result)
+          })
+          .catch(handleErrors(res))
+      } else {
+        const assessment = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'mocks', `post-api-assessment-${req.params.qround}.json`)).toString())
+        assessment.assessmentId = +new Date()
+        res.json(assessment)
+      }
     },
 
     giveAnswer: async (req, res) => {
       try {
-        await db.Answer.destroy({where: {assessmentId: +req.params.id, questionId: +req.body.questionId}})
-        await db.Answer.bulkCreate(Object.keys(req.body.answers).map(optionId => ({
+        const records = Object.keys(req.body.answers).map(optionId => ({
           assessmentId: +req.params.id,
           questionId: +req.body.questionId,
           answerOptionId: +optionId,
           value: req.body.answers[optionId]
-        })))
+        }))
+        if (db.sequelize) {
+          await db.Answer.destroy({where: {assessmentId: +req.params.id, questionId: +req.body.questionId}})
+          await db.Answer.bulkCreate(records)
+        } else {
+          console.info(JSON.stringify(records))
+        }
         res.json({ok: true})
       } catch (error) {
         console.error(error)

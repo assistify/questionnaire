@@ -1,0 +1,8 @@
+{
+  "questionnaire": {
+    "id": 1,
+    "title": "Befragung zum Team-Tagebuch",
+    "greeting": "Hallo liebe/r Team-Tagebuch-Benutzer!",
+    "description": "Wir wrden uns freuen, Feedback zu Deinen Erfahrungen mit dem Team-Tagebuch zu erhalten. Bitte beantworte uns doch dazu ein paar Fragen. Es dauert auch nicht lange, versprochen!"
+  }
+}

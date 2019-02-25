@@ -1,0 +1,177 @@
+{
+  "assessmentId": 18,
+  "totalsPossible": {
+    "1": 70,
+    "2": 20,
+    "3": 20,
+    "4": 20
+  },
+  "questions": [
+    {
+      "id": 5,
+      "title": "Nach Abwesenheit",
+      "type": "agreement",
+      "competence": {
+        "id": 1,
+        "name": "Wertversprechen",
+        "includeInAnalysis": true,
+        "sort": 1
+      },
+      "options": [
+        {
+          "id": 9,
+          "text": "Ich nutze das Tagebuch, um mir einen Überblick zu verschaffen, wenn ich längere Zeit mal nicht da war",
+          "value": null
+        },
+        {
+          "id": 10,
+          "text": "Wenn ich nicht beim Daily dabei bin, fühle ich mich besser, da meine Kollegen über meine Tätigkeiten informiert sind",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Die Einträge meiner Kollegen",
+      "type": "agreement",
+      "competence": {
+        "id": 1,
+        "name": "Wertversprechen",
+        "includeInAnalysis": true,
+        "sort": 1
+      },
+      "options": [
+        {
+          "id": 8,
+          "text": "Ich lese die Einträge meiner Kollegen, weil ich wissen möchte, woran die Kollegen arbeiten",
+          "value": null
+        },
+        {
+          "id": 11,
+          "text": "Ich lese die Einträge meiner Kollegen, weil ich wissen möchte, ob sie Unterstützung brauchen",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Täglich Tagebuch-Einträge machen",
+      "type": "agreement",
+      "competence": {
+        "id": 1,
+        "name": "Wertversprechen",
+        "includeInAnalysis": true,
+        "sort": 1
+      },
+      "options": [
+        {
+          "id": 1,
+          "text": "Wenn ich meinen Eintrag gemacht habe, gehe ich entspannter in den Feierabend",
+          "value": null
+        },
+        {
+          "id": 2,
+          "text": "Wenn ich meinen Eintrag gemacht habe, komme ich entspannter in den nächsten Tag",
+          "value": null
+        },
+        {
+          "id": 3,
+          "text": "Ich kann mich im Daily besser erinnern, was war und was ich vorhabe",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Support und DiaryBot",
+      "type": "agreement",
+      "competence": {
+        "id": 2,
+        "name": "Qualitat und Service",
+        "includeInAnalysis": true,
+        "sort": 2
+      },
+      "options": [
+        {
+          "id": 12,
+          "text": "Das Assistify Team hilft mir weiter, falls mal was mit dem Tagebuch nicht klappt oder ich Fragen habe",
+          "value": null
+        },
+        {
+          "id": 13,
+          "text": "Ich empfinde die Kommunikation mit dem DiaryBot als angenehm und hilfreich",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Häufigkeit der Nutzung",
+      "type": "agreement",
+      "competence": {
+        "id": 3,
+        "name": "Haufigkeit der Nutzung",
+        "includeInAnalysis": true,
+        "sort": 3
+      },
+      "options": [
+        {
+          "id": 14,
+          "text": "Ich schaue mindestens zwei Mal pro Woche die Tagebuch-Übersicht an",
+          "value": null
+        },
+        {
+          "id": 15,
+          "text": "Seit ich das Tagebuch verwende, nutze ich Assistify häufiger",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Auch für andere interessant",
+      "type": "agreement",
+      "competence": {
+        "id": 4,
+        "name": "Zufriedenheit",
+        "includeInAnalysis": true,
+        "sort": 4
+      },
+      "options": [
+        {
+          "id": 18,
+          "text": "Ich empfehle das Tagebuch meinen Kollegen",
+          "value": null
+        },
+        {
+          "id": 19,
+          "text": "Ich möchte das Tagebuch auch nach der Testphase weiter verwenden",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Das Tagebuch und mein Nutzen",
+      "type": "agreement",
+      "competence": {
+        "id": 4,
+        "name": "Zufriedenheit",
+        "includeInAnalysis": true,
+        "sort": 4
+      },
+      "options": [
+        {
+          "id": 16,
+          "text": "Der Diary-Bot hilft mir, meine Einträge täglich zu machen",
+          "value": null
+        },
+        {
+          "id": 17,
+          "text": "Das Tagebuch hilft mir in der täglichen Zusammenarbeit mit meinem Team",
+          "value": null
+        }
+      ]
+    }
+  ]
+}
