@@ -66,7 +66,7 @@ module.exports = db => {
           .then(questionnaire => res.json({questionnaire}))
           .catch(handleErrors(res))
       } else {
-        res.json(JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'mocks', `get-api-assessment-${req.params.qround}.json`)).toString()))
+        res.json(JSON.parse(fs.readFileSync(path.resolve(__dirname, 'mocks', `get-api-assessment-${req.params.qround}.json`)).toString()))
       }
     },
 
@@ -109,7 +109,7 @@ module.exports = db => {
           })
           .catch(handleErrors(res))
       } else {
-        const assessment = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'mocks', `post-api-assessment-${req.params.qround}.json`)).toString())
+        const assessment = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'mocks', `post-api-assessment-${req.params.qround}.json`)).toString())
         assessment.assessmentId = +new Date()
         res.json(assessment)
       }
