@@ -17,6 +17,7 @@ limitations under the License.
 
 const fs = require('fs')
 const path = require('path')
+const fetch = require('node-fetch')
 const {decode} = require('./base58')
 const handleErrors = require('./handleErrors')
 const sortVal = val => val ? val - 1 : Math.random()
@@ -127,7 +128,10 @@ module.exports = db => {
           await db.Answer.destroy({where: {assessmentId: +req.params.id, questionId: +req.body.questionId}})
           await db.Answer.bulkCreate(records)
         } else {
-          console.info(JSON.stringify(records))
+          const headers = {'content-type': 'application/json'}
+          const body = JSON.stringify({text: JSON.stringify(records)})
+          const response = await fetch(process.env.HOOK_URL, {method: 'POST', headers, body})
+          const data = await response.json()
         }
         res.json({ok: true})
       } catch (error) {
