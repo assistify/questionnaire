@@ -121,11 +121,10 @@ class App extends Component {
         description={this.state.questionnaire.description}
       />
     } else if (this.state.currentQuestion >= this.state.questions.length) {
-      page = <ResultPage totals={this.state.totals}
-        totalsPossible={this.state.totalsPossible}
-        questions={this.state.questions}
-        start={() => this.start()}
-      />
+      page = <div className="thank-you">
+        <h2>Vielen Dank für dein Feedback!</h2>
+        <p>Das hilft uns, das Tagebuch in Zukunft besser zu machen und damit eurem und anderen Teams besser bei der Arbeit zu unterstützen!</p>
+      </div>
     } else {
       let question = this.state.questions[this.state.currentQuestion]
       page = <QuestionPage question={question}

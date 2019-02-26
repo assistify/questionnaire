@@ -131,6 +131,10 @@ h2 {
   display: block;
 }
 
+.thank-you {
+    padding-left: 140px;
+}
+
 .checkbox input[type="checkbox"] {
   margin-left: 0;
 }
