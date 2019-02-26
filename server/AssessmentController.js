@@ -51,7 +51,7 @@ module.exports = db => {
   }
 
   function compareQuestions(a, b) {
-    return Math.sign(sortVal(a.competence.sort) - sortVal(b.competence.sort)) || Math.sign(Math.random() - 0.5)
+    return Math.sign(sortVal(a.competence.sort) - sortVal(b.competence.sort)) || Math.sign(a.id - b.id)
   }
 
   return {
