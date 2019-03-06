@@ -123,7 +123,7 @@ class App extends Component {
     } else if (this.state.currentQuestion >= this.state.questions.length) {
       page = <div className="thank-you">
         <h2>Vielen Dank für dein Feedback!</h2>
-        <p>Das hilft uns, das Tagebuch in Zukunft besser zu machen und damit eurem und anderen Teams besser bei der Arbeit zu unterstützen!</p>
+        <p>Das hilft uns, das Tagebuch in Zukunft besser zu machen und damit euch und andere Teams besser bei der Arbeit zu unterstützen!</p>
       </div>
     } else {
       let question = this.state.questions[this.state.currentQuestion]
