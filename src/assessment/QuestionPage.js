@@ -18,11 +18,13 @@ import React, { Component } from 'react'
 import CheckboxList from './CheckboxList'
 import RadioButtonList from './RadioButtonList'
 import AgreementList from './AgreementList'
+import FreeTextField from './FreeTextField'
 
 const components = {
   check: CheckboxList,
   radio: RadioButtonList,
   agreement: AgreementList,
+  text: FreeTextField
 }
 
 class QuestionPage extends Component {

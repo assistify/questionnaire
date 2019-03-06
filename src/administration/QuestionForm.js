@@ -22,6 +22,7 @@ const questionTypes = [
   { id: 'radio', name: 'Einfachauswahl' },
   { id: 'check', name: 'Mehrfachauswahl' },
   { id: 'agreement', name: 'Beurteilungsfrage' },
+  { id: 'text', name: 'Freitext' },
 ]
 
 const competences = [
@@ -134,7 +135,7 @@ QuestionForm.propTypes = {
   question: PropTypes.shape({
     id: PropTypes.number,
     title: PropTypes.string,
-    type: PropTypes.oneOf(['check', 'radio', 'agreement'])
+    type: PropTypes.oneOf(['check', 'radio', 'agreement', 'text'])
   })
 }
 

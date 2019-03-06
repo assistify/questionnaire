@@ -75,7 +75,8 @@ module.exports = db => {
       const totalsReducer = {
         check: (accumulator, option) => accumulator + option.value,
         radio: (accumulator, option) => Math.max(accumulator, option.value),
-        agreement: accumulator => accumulator + 10
+        agreement: accumulator => accumulator + 10,
+        text: accumulator => accumulator
       }
       const questionReducer = (accumulator, question) => {
         if (question.competence) {
@@ -118,12 +119,18 @@ module.exports = db => {
 
     giveAnswer: async (req, res) => {
       try {
-        const records = Object.keys(req.body.answers).map(optionId => ({
-          assessmentId: +req.params.id,
-          questionId: +req.body.questionId,
-          answerOptionId: +optionId,
-          value: req.body.answers[optionId]
-        }))
+        const records = req.body.answers.textValue
+          ? ([{
+            assessmentId: +req.params.id,
+            questionId: +req.body.questionId,
+            valueText: req.body.answers.textValue
+          }])
+          : Object.keys(req.body.answers).map(optionId => ({
+            assessmentId: +req.params.id,
+            questionId: +req.body.questionId,
+            answerOptionId: +optionId,
+            value: req.body.answers[optionId]
+          }))
         if (db.sequelize) {
           await db.Answer.destroy({where: {assessmentId: +req.params.id, questionId: +req.body.questionId}})
           await db.Answer.bulkCreate(records)
@@ -131,7 +138,7 @@ module.exports = db => {
           const headers = {'content-type': 'application/json'}
           const body = JSON.stringify({text: JSON.stringify(records)})
           const response = await fetch(process.env.HOOK_URL, {method: 'POST', headers, body})
-          const data = await response.json()
+          await response.json()
         }
         res.json({ok: true})
       } catch (error) {
