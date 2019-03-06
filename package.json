@@ -2,7 +2,7 @@
   "name": "questionnaire-ce",
   "description": "A web tool to ask questions, and compute a score based on the given answers",
   "repository": "https://github.com/JustsoSoftware/questionnaire-ce.git",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": false,
   "license": "Apache-2.0",
   "dependencies": {
